@@ -74,7 +74,7 @@ nav {
 }
 
 #menu-icon {
-	display: hidden; /* Hidden until media query triggers it */
+	display: hidden; /* Hidden until media query triggers it later*/
 	width: 40px;
 	height: 40px;
 	background: url(img/nav.png) center;
@@ -261,5 +261,79 @@ footer.second {
 footer.second p {
 	padding: 5px 0 9px 0;
 	text-align: center;
+}
+
+/*----- MEDIA QUERIES ----*/
+
+/* how website behaves when screen size is 768px wide or smaller */
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 150%;
+	}
+	h3 {
+		font-size: 125%;	
+	}
+	p {
+		font-size: 120%;
+	}
+	header {
+		position: absolute; /* positions element absolutely anywhere relative to parent element.. takes element out of normal documant flow, placing it on top of other elements. The following video explains it well - wellhttps://www.youtube.com/watch?v=2JMGG_8T-vY - In this case it places the header element on top of the banner elements */
+	}
+	#logo {
+		margin: 15px 0 20px -25px;
+		background: url(img/RD_mobile.png) no-repeat center; /* overwrites original logo image with smaller mobile version -- no-repeat limits logo to one instance.. not sure why we have to declare this? https://www.w3schools.com/cssref/pr_background-repeat.asp */
+	}
+	#menu-icon {
+		display: inline-block; /* Unhides this previously hidden mobile only element that we hid on line 77 */
+	}
+	/* The :active selector is used to select and style the active link. A link becomes active when you click on it. https://www.w3schools.com/cssref/sel_active.asp */
+	nav ul, nav:active ul {
+		display: none; /* This initially hides the elements until we trigger them to unhide in a future line of code */
+		z-index: 1000; /* Places element on top of all other elements. The z-index property specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order. https://www.w3schools.com/cssref/pr_pos_z-index.asp */
+		position: absolute; /* Why is it necessary to use both this and z-index? -- Positions element absolutely anywhere relative to parent element.. takes element out of normal documant flow, placing it on top of other elements. The following video explains it well - wellhttps://www.youtube.com/watch?v=2JMGG_8T-vY - In this case it places the header element on top of the banner elements */
+		padding: 20px;
+		background: #6991ac; /* To shorten the code, it is also possible to specify all the background properties in one single property. This is called a shorthand property. */
+		right: 20px; /* same as margin-right - added 20px margin to push menu back onto page -- For absolutely positioned elements, the right property sets the right edge of an element to a unit to the left/right of the right edge of its nearest positioned ancestor. https://www.w3schools.com/cssref/pr_pos_right.asp */
+		top: 60px; /* not sure what this did? */
+		border: 1.5px solid #fff; 
+		border-radius: 7px 0 7px 7px; /* The border-radius property is used to add rounded corners to an element. */
+		width: 50%;
+	}
+	nav:hover ul {
+		display: block; /* unhides elements once ouor cursor hovers over the menu icon element*/
+	}
+
+	nav li {
+		text-align: center;
+		width: 100%;
+		padding: 10px 0;
+	}
+	.banner {
+		padding-top: 86px;
+	}
+	.one-fourth {
+		float: left;
+		width: 100%;
+	}
+	.one-fourth i {
+		font-size: 350%;
+		padding: 4% 0 1% 0;
+	}
+	article {
+		width: 100%;
+	}
+	aside {
+		width: 100%;
+	}
+	.hand-mobile {
+		display: none; /* hide img/hand_mobile.png in mobile view */
+	}
+	.one-third {
+		width: 100%;
+	}
+	.social i {
+		font-size: 180%;
+	}
+
 
 }
